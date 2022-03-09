@@ -1,13 +1,21 @@
 
+import py_compile
 import uvicorn
 from fastapi import FastAPI
 import pandas as pd
-import gcsfs
-import pandas_gbq
-import os
+import PyPDF2
 
 app = FastAPI()
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+@app.get("/files/{file_path:path}")
+async def return_Pdf(file_path: str):
+    #Creating an pdf obj
+    pdfFileObj = open('Files/sample.pdf' , 'rb')
+    #createing an pdf reader obj
+    pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+    print(pdfReader)
+    #creating page obj
+    pageObj = pdfReader.getPage(0)
+
+    
+    return pageObj
