@@ -4,18 +4,16 @@ import uvicorn
 from fastapi import FastAPI
 import pandas as pd
 import PyPDF2
+from pathlib import Path
 
 app = FastAPI()
 
-@app.get("/files/{file_path:path}")
+@app.get("/files/{file_path}")
 async def return_Pdf(file_path: str):
-    #Creating an pdf obj
-    pdfFileObj = open('Files/sample.pdf' , 'rb')
-    #createing an pdf reader obj
-    pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
-    print(pdfReader)
-    #creating page obj
-    pageObj = pdfReader.getPage(0)
-
+    base_path = Path(__file__).parent
+    files_path = (base_path / "../FastAPI/Files/Wöldike_1set.pdf").resolve() 
     
-    return pageObj
+    files = {"file": open(files_path, 'rb').read().decode(encoding='utf-8', errors='ignore')}
+    
+    return files
+
