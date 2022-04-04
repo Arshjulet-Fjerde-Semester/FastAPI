@@ -1,6 +1,4 @@
 import base64
-from fastapi import FastAPI
-import pandas as pd
 from fastapi import FastAPI, WebSocket
 from pathlib import Path
 from fastapi.middleware.cors import CORSMiddleware
