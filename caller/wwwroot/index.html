@@ -12,8 +12,11 @@
 <body>
     
     <object data="wwwroot/Pdf/pdftest.pdf" type="application/pd">
-        <iframe height="100%" width="100%" name="WebGl" id="WebGl" src="wwwroot/Pdf/pdftest.pdf" frameborder="0"></iframe>
+        <iframe height="500px" width="100%" name="WebGl" id="WebGl" src="wwwroot/Pdf/pdftest.pdf" frameborder="0"></iframe>
     </object>
+
+    <button onclick="sendMessage(event)">Ændrer til PrædikenPDF</button> 
+    <span id="text" style="height: 300px; width: 300px;"></span>
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="wwwroot/js/Apicaller.js"></script>
