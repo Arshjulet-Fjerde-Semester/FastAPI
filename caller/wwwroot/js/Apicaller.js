@@ -1,3 +1,7 @@
+
+
+// This function should get a Message from the API
+// and convert the message into a readable format, which can be presented in the view
 function sendMessage(){
     $.ajax({
         url: "http://127.0.0.1:8000/files",
@@ -34,6 +38,8 @@ function sendMessage(){
 //         };
 // };
 
+
+//This function converts a blob to a base64 string, to get the needed data from the blob
 function blobToBase64(blob) {
     return new Promise((resolve, _) => {
       const reader = new FileReader();
@@ -41,6 +47,8 @@ function blobToBase64(blob) {
       reader.readAsDataURL(blob);
     });
   }
+
+//This function takes a base64 string and adds it to a Uint8array, after that is done it should return the array
 function base64ToArrayBuffer(base64) {
     var binaryString = window.atob(base64);
     var binaryLen = binaryString.length;
